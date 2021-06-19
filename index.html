@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Daily Scrum Timer</title>
+</head>
+<body>
+  <H1>Daily Scrum Timer</H1>
+
+  <ul>
+  <li>set <input type="text" id="txb1" value="900" size="3" /> sec</li>
+  <li>set <input type="text" id="txb2" value="7" size="3" /> êl</li>
+  <li>total rest <input type="text" id="tBoxT" class="font-main" size="3" /></li>
+  <li>person rest <input type="text" id="tBoxP" class="font-main" size="3" /></li>
+  <li><button type="button" id="btn1">Start</button></li>
+  <li><button type="button" id="btn2">person reset</button></li>
+  </ul>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script language="javascript" type="text/javascript">
+    var music1 = new Audio('https://ultra.zone/file/jihou-sine-2f.mp3');
+    var music2 = new Audio('https://ultra.zone/file/jihou-tbs.mp3');
+    var timeT = 0;
+    var timeP = 0;
+
+    $("#btn1").on("click", function()
+    {
+        const textboxT = document.getElementById("txb1");
+        timeT = textboxT.value;
+
+        const textboxP = document.getElementById("txb2");
+        timeP = parseInt(textboxT.value / textboxP.value);
+
+        if( 0 < timeT )
+        {
+            setTimeout(TimeOver,1000);
+        }
+    });
+
+    $("#btn2").on("click", function()
+    {
+        const textboxT = document.getElementById("txb1");
+        const textboxP = document.getElementById("txb2");
+        timeP = parseInt(textboxT.value / textboxP.value);
+    });
+
+    var TimeOver = function(msg1)
+    {
+        if( 0 < timeT  )
+        {
+            timeT -= 1;
+            if( timeT == 3 )
+            {
+                music2.play();
+            }
+        }
+
+        if( 0 < timeP  )
+        {
+            timeP -= 1;
+            if( timeP == 3 )
+            {
+                music1.play();
+            }
+        }
+        else
+        {
+        }
+
+        $("#tBoxT").val(timeT);
+        $("#tBoxP").val(timeP);
+
+        if( timeT <= 0 )
+        {
+        }
+        else
+        {
+            setTimeout(TimeOver,1000);
+        }
+    }
+    </script>
+
+</body>
+</html>
