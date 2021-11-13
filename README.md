@@ -1,7 +1,7 @@
 # DailyScrumTimer
 Timer for Daily Scrum
 
- [Run](https://wurly200a.github.io/DailyScrumTimer/)
+ [Run](https://wurly200a.github.io/DailyScrumTimerJS/)
 
 ## Screenshots
 
